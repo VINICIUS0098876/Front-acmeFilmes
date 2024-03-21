@@ -14,7 +14,7 @@ function criarFilme(info){
     produto.classList.add('text-[#ECDDA2]','text-3xl')
     const valor = document.createElement('p')
     valor.classList.add('text-[#ECDDA2]','text-3xl')
-    valor.textContent=info.valor_unitario
+    valor.textContent= 'R$'+info.valor_unitario
     const icones = document.createElement('div')
     icones.classList.add('text-[#ECDDA2]','text-3xl','flex','gap-4')
     const iconeEditar = document.createElement('i')
