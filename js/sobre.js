@@ -1,6 +1,6 @@
 'use strict'
 
-import {getFilmes, getFilmesId,postFilme} from "./filmes.js"
+import {getFilmes, getFilmesId,postFilme, putFilme} from "./filmes.js"
 
 const indice = new URLSearchParams(window.location.search).get('id');
 
