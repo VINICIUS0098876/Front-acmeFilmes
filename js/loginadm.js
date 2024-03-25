@@ -20,7 +20,7 @@ const form = document.getElementById('form').addEventListener('submit', function
     const senha = document.getElementById('senha').value
 
     if (email === 'adm@gmail.com' && senha === 'Adm123@') {
-        window.location.href = '../dashboard.html'
+        window.location.href = './dashboard.html'
     } else {
         alert('Por favor, coloque as informações corretas!!')
     }
