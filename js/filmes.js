@@ -14,6 +14,13 @@ export async function getFilmesId(id){
     return data.filmes[0]
 }
 
+export async function selectNameFilmes(nome){
+    const url = `http://localhost:8080/v2/acmeFilmes/Filmes/Filtro?nome=${nome}`
+    const response = await fetch(url)
+    const data = await response.json()
+    return data
+}
+
 
 export async function postFilme(filme){
     const url = 'http://localhost:8080/v2/acmeFilmes/filme'
@@ -44,6 +51,9 @@ export async function putFilme(filme){
 
     return response.ok
 }
+
+
+
 
 export async function deleteFilme(id){
     try{

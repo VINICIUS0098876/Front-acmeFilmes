@@ -1,11 +1,29 @@
 'use strict'
-import {getFilmes, postFilme} from "./filmes.js"
+import {getFilmes, postFilme, selectNameFilmes} from "./filmes.js"
 
 console.table(await getFilmes())
 
 import { getFilmesId } from "./filmes.js"
 
+const search = new URLSearchParams(window.location.search).get('search')
+const searchBar = document.getElementById('searchBar')
+const container = document.getElementById('container')
+    if(search==''){
+        searchBar.focus()
+    }
+    if(search){
+        searchBar.value = search
+        const data = await selectNameFilmes(search)
+        if(data){
+            data.forEach(filme => {
+                criarCard(filme)
+            })
+        }else{
+            searchBar.focus()
+        }
+    }
 
+const searchButton = document.getElementById('searchButton')
 console.table(await getFilmesId(2))
 
 
@@ -58,4 +76,23 @@ async function preencherContainer(){
         criarCard(filme)
     })
 }
+
+// const input = document.getElementById('input')
+
+// input.addEventListener('keyup', async(nome)=>{
+//     if(input == nome){
+//         const nomeFilme = await selectNameFilmes()
+//          nomeFilme = preencherContainer()
+//     }
+// })
+
+searchBar.addEventListener('keypress', (event)=>{
+    if(event.key === "Enter"){
+        searchButton.click()
+    }
+})
+
+
+
+
 preencherContainer()
