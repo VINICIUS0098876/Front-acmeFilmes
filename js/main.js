@@ -8,27 +8,34 @@ import { getFilmesId } from "./filmes.js"
 const search = new URLSearchParams(window.location.search).get('search')
 const searchBar = document.getElementById('searchBar')
 const container = document.getElementById('container')
-    if(search==''){
-        searchBar.focus()
-    }
-    if(search){
-        searchBar.value = search
-        const data = await selectNameFilmes(search)
-        if(data){
-            data.forEach(filme => {
-                criarCard(filme)
-            })
-        }else{
-            searchBar.focus()
-        }
-    }
 
 const searchButton = document.getElementById('searchButton')
+searchButton.addEventListener('click', pesquisar)
+async function pesquisar(){
+    const pesquisaFilme = await selectNameFilmes(searchBar.value)
+    const listaFilmes = pesquisaFilme.nome
+    apagarListaFilmes()
+
+    listaFilmes.forEach(filme => {
+        console.log(filme)
+        criarCard(filme)
+    });
+}
+
+searchBar.addEventListener('keypress', (event)=>{
+    if(event.key === "Enter"){
+        pesquisar()
+    }
+})
+function apagarListaFilmes(){
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
 console.table(await getFilmesId(2))
 
 
 function criarCard (filme){
-    const container = document.getElementById('container')
     container.classList.add('gap-8')
     const card = document.createElement('div')
     card.classList.add('flex')
@@ -85,12 +92,6 @@ async function preencherContainer(){
 //          nomeFilme = preencherContainer()
 //     }
 // })
-
-searchBar.addEventListener('keypress', (event)=>{
-    if(event.key === "Enter"){
-        searchButton.click()
-    }
-})
 
 
 

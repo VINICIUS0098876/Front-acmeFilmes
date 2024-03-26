@@ -30,7 +30,7 @@ async function dadosFilme(){
         duracao.value = tratarDuracao(infoFilme.duracao)
        
         poster.src = infoFilme.foto_capa
-        valor.value = 'R$'+infoFilme.valor_unitario
+        valor.value = infoFilme.valor_unitario
         lancamento.value = infoFilme.data_lancamento.slice(0,10)
         // console.log(infoFilme.data_lancamento.slice(0,10))
         relancamento.value = infoFilme.data_relancamento
@@ -64,7 +64,7 @@ salvar.addEventListener('click', () => {
     const dataLancamentoInput = lancamento.value;
     const dataRelancamentoInput = relancamento.value;
     const precoInput = valor.value;
-    const fotoCapaInput = poster.value;
+    const fotoCapaInput = poster.src;
 
     const alteracoes = {
         nome: nomeInput,
@@ -80,7 +80,7 @@ salvar.addEventListener('click', () => {
 
     putFilme(id, alteracoes)
         
-        // window.location.href = './dashboard.html';
+        window.location.href = './dashboard.html';
         
     
 });

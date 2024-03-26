@@ -37,8 +37,8 @@ export async function postFilme(filme){
     return response.ok
 }
 
-export async function putFilme(filme){
-    const url = `http://localhost:8080/v2/acmeFilmes/filme/${filme.id}`
+export async function putFilme(id, filme){
+    const url = `http://localhost:8080/v2/acmeFilmes/filme/${id}`
     const options = {
         method: 'PUT',
         headers: {
