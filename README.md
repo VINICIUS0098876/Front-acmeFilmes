@@ -40,7 +40,7 @@ Níveis | Desempenho | Nota
 
 Protótipo | FRONT-END | Landing Page | CMS
 ----------|-----------|--------------|-----
-[link1] | [projeto][link2] | [gitPreview][link3] | [link][link3] 
+[https://www.figma.com/](https://www.figma.com/file/0tRDddvS5HpHmmLcaLz4EN/Projeto-Filme?type=design&node-id=29-64&mode=design&t=VYeQU9QVTP1DwXOX-0) | [https://github.com/](https://github.com/VINICIUS0098876/Front-acmeFilmes) | [https://github.com/](https://vinicius0098876.github.io/Front-acmeFilmes/) | [https://github.com/](https://vinicius0098876.github.io/Front-acmeFilmes/)
 
 
 [link1]: [https://www.figma.com/](https://www.figma.com/file/0tRDddvS5HpHmmLcaLz4EN/Projeto-Filme?type=design&node-id=29-64&mode=design&t=VYeQU9QVTP1DwXOX-0)
