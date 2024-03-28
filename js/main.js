@@ -32,7 +32,7 @@ function apagarListaFilmes(){
         container.removeChild(container.firstChild);
     }
 }
-console.table(await getFilmesId(2))
+
 
 
 function criarCard (filme){
