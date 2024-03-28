@@ -37,9 +37,9 @@ function criarFilme(info){
 
 const add = document.getElementById('add')
 
-// add.addEventListener('click', ()=>{
-//     window.location.href = './cadastro.html'
-// })
+add.addEventListener('click', ()=>{
+    window.location.href = '../cadastro.html'
+})
 
 listaFilme.forEach(filme => {
     criarFilme(filme)
