@@ -21,7 +21,6 @@ export async function selectNameFilmes(nome){
     return data
 }
 
-
 export async function postFilme(filme){
     const url = 'http://localhost:8080/v2/acmeFilmes/filme'
     const options = {
@@ -52,9 +51,6 @@ export async function putFilme(id, filme){
     return response.ok
 }
 
-
-
-
 export async function deleteFilme(id){
     try{
         await fetch(`http://localhost:8080/v2/acmeFilmes/filme/${id}`,{
@@ -66,3 +62,48 @@ export async function deleteFilme(id){
     }
 }
 
+// ----------------------------------------------- GÊNERO -----------------------------------------------//
+
+export async function getGenero(){}
+
+export async function getGeneroId(id){}
+
+export async function selectNameGenero(nome){}
+
+export async function postGenero(genero){}
+
+export async function putGenero(id, genero){}
+
+export async function deleteGenero(id){}
+
+// ----------------------------------------------- CLASSIFICAÇÃO -----------------------------------------//
+
+export async function getClassificacao(){}
+
+export async function getClassificacaoId(){}
+
+export async function selectNameClassificacao(){}
+
+export async function postClassificacao(){}
+
+export async function putClassificacao(){}
+
+export async function deleteClassificacao(){}
+
+// ---------------------------------------------- SEXO ---------------------------------------------------//
+
+export async function getSexo(){}
+
+export async function getSexoId(){}
+
+export async function selectAtorBySexo(){}
+
+// ---------------------------------------------- NACIONALIDADE ------------------------------------------//
+
+export async function getNacionalidade(){}
+
+export async function getNacionalidadeId(){}
+
+export async function selectAtorByNacionalidade(){}
+
+// ---------------------------------------------- ATOR ---------------------------------------------------//
