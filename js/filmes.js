@@ -64,9 +64,21 @@ export async function deleteFilme(id){
 
 // ----------------------------------------------- GÊNERO -----------------------------------------------//
 
-export async function getGenero(){}
+export async function getGenero(){
+        const url = 'http://localhost:8080/v2/acmeFilmes/genero'
+    const response = await fetch(url)
+    const data = await response.json()
+    
 
-export async function getGeneroId(id){}
+    return data.filmes
+}
+
+export async function getGeneroId(id){
+        const url = `http://localhost:8080/v2/acmeFilmes/genero/${id}`
+    const response = await fetch(url)
+    const data = await response.json()
+    return data.filmes[0]
+}
 
 export async function selectNameGenero(nome){}
 
