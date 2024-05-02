@@ -16,6 +16,13 @@ function preencherCampos(filme){
     const duracao = document.getElementById('duracao')
     const lancamento = document.getElementById('lancamento')
     lancamento.textContent = "DATA DE LANÇAMENTO: "+tratarData(filme.data_lancamento)
+    const listaGeneros = filme.genero
+    let generoText = ''
+    listaGeneros.forEach(genero => {
+        generoText += genero.nome +', '
+    });
+    const genero = document.getElementById('genero')
+    genero.textContent=generoText.slice(0,generoText.length-2)
     const relancamento = document.getElementById('relancamento')
     if(filme.relancamento){
         relancamento.textContent = "DATA DE RELANÇAMENTO: "+tratarData(filme.data_relancamento)
