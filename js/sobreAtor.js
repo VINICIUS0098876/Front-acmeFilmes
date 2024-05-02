@@ -1,51 +1,38 @@
 'use strict'
 
-import {getFilmes, getFilmesId,postFilme, putFilme} from "./filmes.js"
+import {getAtorId, getDiretor, getDiretorId, getFilmesId} from "./filmes.js"
 
 const indice = new URLSearchParams(window.location.search).get('id');
-
-const infoFilme = await getFilmesId(indice)
-console.log(infoFilme)
+const listaDiretores = await getAtorId(indice)
+console.log(listaDiretores)
 
 function preencherCampos(filme){
     const titulo = document.getElementById('titulo')
-    titulo.textContent = filme.nome
+    titulo.textContent = "Nome: " + filme.nome
+    const nomeArtistico = document.getElementById('nomeartistico')
+    nomeArtistico.textContent = "Nome artístico: " + filme.nome_artistico
     const poster = document.getElementById('poster')
-    poster.src = filme.foto_capa
+    poster.src = filme.foto
     const sinopse = document.getElementById('sinopse')
-    const duracao = document.getElementById('duracao')
+    // const duracao = document.getElementById('duracao')
     const lancamento = document.getElementById('lancamento')
-    lancamento.textContent = "DATA DE LANÇAMENTO: "+tratarData(filme.data_lancamento)
-    const listaGeneros = filme.genero
-    let generoText = ''
-    listaGeneros.forEach(genero => {
-        generoText += genero.nome +', '
-    });
-    // const genero = document.getElementById('genero')
-    // genero.textContent=generoText.slice(0,generoText.length-2)
+    lancamento.textContent = "Data de nascimento: "+tratarData(filme.data_nascimento)
     const relancamento = document.getElementById('relancamento')
     if(filme.relancamento){
-        relancamento.textContent = "DATA DE RELANÇAMENTO: "+tratarData(filme.data_relancamento)
+        relancamento.textContent = "Data de falecimento: "+tratarData(filme.data_falecimento)
     } else {
-        relancamento.textContent = "DATA DE RELANÇAMENTO: Sem previsão"
+        relancamento.textContent = "Data de falecimento: Sem previsão da morte!"
     }
-    const genero = document.getElementById('genero')
-    genero.textContent = "Genero: " + filme.genero[0].nome
-    const icone = document.getElementById('icone')
-    icone.src = filme.classificacao[0].icone 
-    const valor = document.getElementById('valor')
-    valor.textContent='R$ '+filme.valor_unitario
-    duracao.textContent="DURAÇÃO: "+tratarDuracao(filme.duracao) 
-    sinopse.textContent=filme.sinopse
-    const diretores = document.getElementById('diretor')
-    const ator = document.getElementById('ator')
+    sinopse.textContent=filme.biografia
+    const sexo = document.getElementById('sexo')
+    sexo.textContent= "Sexo: "+filme.sexo[0].nome
+    const nacionalidade = document.getElementById('nacionalidade')
+    nacionalidade.textContent = "Nacionalidade: " + filme.nacionalidade[0].nome
 
-diretores.addEventListener('click',()=> {
-    window.location.href='../diretores.html?id='+filme.id
-})
-ator.addEventListener('click',()=> {
-    window.location.href='../atores.html?id='+filme.id
-})
+    // duracao.textContent="DURAÇÃO: "+tratarDuracao(filme.duracao) 
+    const diretores = document.getElementById('diretor')
+
+
 }
 
 
@@ -62,7 +49,7 @@ function tratarData(string){
     return dataTratada
 }
 
-preencherCampos(infoFilme)
+preencherCampos(listaDiretores)
 
 
 

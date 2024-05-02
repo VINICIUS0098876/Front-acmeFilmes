@@ -139,8 +139,64 @@ export async function getDiretorId(id){
 
 export async function selectNamaDiretor(nome){}
 
-export async function postDiretor(genero){}
+export async function postDiretor(diretor){
+    const url = 'http://localhost:8080/v2/filmesAcme/diretores'
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(diretor)
+    }
+
+    const response = await fetch(url, options)
+    console.log(response)
+
+    return response.ok
+}
 
 export async function putDiretor(id, genero){}
 
 export async function deleteDiretor(id){}
+
+
+// ------------------------------------------------- ATOR ----------------------------------------------------//
+
+export async function getAtor(){
+    const url = 'http://localhost:8080/v2/filmesAcme/atores'
+    const response = await fetch(url)
+    const data = await response.json()
+    
+
+    return data.ator
+}
+
+export async function getAtorId(id){
+    const url = `http://localhost:8080/v2/filmesAcme/atores/${id}`
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log(data)
+    return data.ator[0]
+}
+
+// export async function selectNamaDiretor(nome){}
+
+export async function postAtor(ator){
+    const url = 'http://localhost:8080/v2/filmesAcme/atores'
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(ator)
+    }
+
+    const response = await fetch(url, options)
+    console.log(response)
+
+    return response.ok 
+}
+
+// export async function putDiretor(id, genero){}
+
+// export async function deleteDiretor(id){}
