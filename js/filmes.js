@@ -106,4 +106,29 @@ export async function getNacionalidadeId(){}
 
 export async function selectAtorByNacionalidade(){}
 
-// ---------------------------------------------- ATOR ---------------------------------------------------//
+// ---------------------------------------------- DIRETOR ---------------------------------------------------//
+
+export async function getDiretor(){
+    const url = 'http://localhost:8080/v2/filmesAcme/diretores'
+    const response = await fetch(url)
+    const data = await response.json()
+    
+
+    return data.diretor
+}
+
+export async function getDiretorId(id){
+    const url = `http://localhost:8080/v2/filmesAcme/diretores/${id}`
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log(data)
+    return data.diretor[0]
+}
+
+export async function selectNamaDiretor(nome){}
+
+export async function postDiretor(genero){}
+
+export async function putDiretor(id, genero){}
+
+export async function deleteDiretor(id){}

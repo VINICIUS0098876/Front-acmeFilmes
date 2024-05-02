@@ -1,40 +1,36 @@
 'use strict'
 
-import {getFilmes, getFilmesId,postFilme, putFilme} from "./filmes.js"
+import {getDiretor, getDiretorId, getFilmesId} from "./filmes.js"
 
 const indice = new URLSearchParams(window.location.search).get('id');
-
-const infoFilme = await getFilmesId(indice)
-console.log(infoFilme)
+const listaDiretores = await getDiretorId(indice)
+console.log(listaDiretores)
 
 function preencherCampos(filme){
     const titulo = document.getElementById('titulo')
     titulo.textContent = filme.nome
     const poster = document.getElementById('poster')
-    poster.src = filme.foto_capa
+    poster.src = filme.foto
     const sinopse = document.getElementById('sinopse')
     const duracao = document.getElementById('duracao')
     const lancamento = document.getElementById('lancamento')
-    lancamento.textContent = "DATA DE LANÇAMENTO: "+tratarData(filme.data_lancamento)
+    lancamento.textContent = "Data de nascimento: "+tratarData(filme.data_nascimento)
     const relancamento = document.getElementById('relancamento')
     if(filme.relancamento){
-        relancamento.textContent = "DATA DE RELANÇAMENTO: "+tratarData(filme.data_relancamento)
+        relancamento.textContent = "Data de falecimento: "+tratarData(filme.data_falecimento)
     } else {
-        relancamento.textContent = "DATA DE RELANÇAMENTO: Sem previsão"
+        relancamento.textContent = "Data de falecimento: Sem previsão da morte!"
     }
-    const genero = document.getElementById('genero')
-    genero.textContent = "Genero: " + filme.genero[0].nome
-    const icone = document.getElementById('icone')
-    icone.src = filme.classificacao[0].icone 
-    const valor = document.getElementById('valor')
-    valor.textContent='R$ '+filme.valor_unitario
-    duracao.textContent="DURAÇÃO: "+tratarDuracao(filme.duracao) 
-    sinopse.textContent=filme.sinopse
+    sinopse.textContent=filme.biografia
+    const sexo = document.getElementById('sexo')
+    sexo.textContent= "Sexo: "+filme.sexo[0].nome
+    const nacionalidade = document.getElementById('nacionalidade')
+    nacionalidade.textContent = "Nacionalidade: " + filme.nacionalidade[0].nome
+
+    // duracao.textContent="DURAÇÃO: "+tratarDuracao(filme.duracao) 
     const diretores = document.getElementById('diretor')
 
-diretores.addEventListener('click',()=> {
-    window.location.href='../diretores.html?id='+filme.id
-})
+
 }
 
 
@@ -51,7 +47,7 @@ function tratarData(string){
     return dataTratada
 }
 
-preencherCampos(infoFilme)
+preencherCampos(listaDiretores)
 
 
 
