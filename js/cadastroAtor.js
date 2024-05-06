@@ -11,6 +11,7 @@ const valor = document.getElementById('valor')
 const cadastrar = document.getElementById('cadastrar')
 const poster = document.getElementById('poster')
 const idClassificacao = document.getElementById('classificacao')
+const idNacionalidade = document.getElementById('nacionalidade')
 
 cadastrar.addEventListener('click', ()=>{
 
@@ -21,14 +22,16 @@ cadastrar.addEventListener('click', ()=>{
     const dataRelancamentoInput = dataRelancamento.value
     const capaInput = poster.src
     const classificacaoInput = idClassificacao.value
+    const nacionalidadeInput = idNacionalidade.value
     const insert ={
         nome: tituloInput,
-        nome_artistico: sinopseInput,
-        biografia: duracaoInput,
+        nome_artistico: duracaoInput,
+        biografia: sinopseInput,
         data_nascimento: dataLancamentoInput,
         data_falecimento: dataRelancamentoInput,
         foto: capaInput,
-        id_sexo: classificacaoInput
+        id_sexo: classificacaoInput,
+        id_nacionalidade: nacionalidadeInput
     }
 
     postAtor(insert)

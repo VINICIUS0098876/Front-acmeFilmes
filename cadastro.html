@@ -27,9 +27,9 @@
         </ul>
     </header>
 
-    <main class="h-5/6 flex justify-center items-center ">
+    <main class="h-4/5 flex justify-center items-center ">
         <div class="flex w-full h-full justify-around items-center" id="container">
-        <div class="flex flex-col   gap-4 border-4 border-[#ECDDA2#ECDDA2] p-5 mt-5 rounded-lg">
+        <div class="flex flex-col gap-4 border-4 border-[#ECDDA2#ECDDA2] p-5 mt-5 rounded-lg overflow-auto h-5/6 " id="custom-scrollbar">
             <h1 class="text-[#ECDDA2]  text-3xl flex items-center justify-center pb-4">CADASTRE SEU FILME</h1>
             <div class="flex items-center gap-2">
                 <p class="text-[#ECDDA2]  text-3xl" >Nome do filme:</p>
@@ -60,12 +60,28 @@
                 <select name="" class="text-2xl border-[#ECDDA2] border-4 bg-[#19191A] text-[#ECDDA2] outline-none" id="classificacao">
                     <option value="10">10</option>
                     <option value="12">Livre</option>
-                    <option value="13">16</option>
-                    <option value="14">14</option>
+                    <option value="2">16</option>
+                    <option value="1">14</option>
                     <option value="15">12</option>
                     <option value="11">18</option>
                 </select>
-            </div>            
+            </div> 
+            <div class="flex items-center gap-2">
+                <p class="text-[#ECDDA2]  text-3xl" >Gênero:</p>
+                <select name="" class="text-2xl border-[#ECDDA2] border-4 bg-[#19191A] text-[#ECDDA2] outline-none" id="genero">
+                    <option value="3">Terror</option>
+                    <option value="4">Ação</option>
+                    <option value="5">Aventura</option>
+                </select>
+            </div> 
+            <div class="flex items-center gap-2">
+                <p class="text-[#ECDDA2]  text-3xl" >Ator:</p>
+                <input type="text" class="p-3 outline-none border-4 border-[#ECDDA2#ECDDA2] bg-[#19191A] text-[#ECDDA2] text-2xl" id="ator">
+            </div>
+            <div class="flex items-center gap-2">
+                <p class="text-[#ECDDA2]  text-3xl" >Diretor:</p>
+                <input type="text" class="p-3 outline-none border-4 border-[#ECDDA2#ECDDA2] bg-[#19191A] text-[#ECDDA2] text-2xl" id="diretor">
+            </div>
             <button class="p-3 border-4 mt-6 border-[#ECDDA2] text-[#ECDDA2] font-bold hover:bg-[#ECDDA2] hover:text-[#19191A] transition ease-in-out block rounded-full" id="cadastrar">CADASTRAR FILME</button>
         </div>
         <div class="" id="capaFilme">
@@ -80,3 +96,18 @@
 
 </body>
 </html>
+
+<style>
+    #custom-scrollbar::-webkit-scrollbar-thumb{
+        background-color: #ecdda2b6;
+        border-radius: 2px;
+    }
+
+    #custom-scrollbar::-webkit-scrollbar-track{
+        border-left: 4px solid #ECDDA2;
+    }
+
+    #custom-scrollbar::-webkit-scrollbar{
+        width: 22px;
+    }
+</style>

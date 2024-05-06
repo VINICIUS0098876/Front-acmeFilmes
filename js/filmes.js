@@ -108,7 +108,12 @@ export async function getSexo(){}
 
 export async function getSexoId(){}
 
-export async function selectAtorBySexo(){}
+export async function selectAtorBySexo(sigla){
+    const url = `http://localhost:8080/v2/acmeFilmes/sexo/Filtro?nome=${sigla}`
+    const response = await fetch(url)
+    const data = await response.json()
+    return data.atores
+}
 
 // ---------------------------------------------- NACIONALIDADE ------------------------------------------//
 
@@ -126,7 +131,7 @@ export async function getDiretor(){
     const data = await response.json()
     
 
-    return data.diretor
+    return data.diretores
 }
 
 export async function getDiretorId(id){
@@ -157,7 +162,27 @@ export async function postDiretor(diretor){
 
 export async function putDiretor(id, genero){}
 
-export async function deleteDiretor(id){}
+export async function deleteDiretor(id){
+    try{
+        await fetch(`http://localhost:8080/v2/filmesAcme/deleteDiretor/${id}`,{
+            method: 'DELETE'
+        })
+        console.log("Diretor excluído com sucesso")
+    } catch (error){
+        console.error('Erro ao excluir filme: ',error);
+    }
+}
+
+export async function getDiretorIdPeloNome(nomeDiretor) {
+    const url = `http://localhost:8080/v2/acmeFilmes/diretor/Filtro?nome=${nomeDiretor}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    if (data && data.diretor && data.diretor.length > 0) {
+        return data.diretor[0].id;
+    } else {
+        return null;
+    }
+}
 
 
 // ------------------------------------------------- ATOR ----------------------------------------------------//
@@ -199,4 +224,24 @@ export async function postAtor(ator){
 
 // export async function putDiretor(id, genero){}
 
-// export async function deleteDiretor(id){}
+export async function deleteAtor(id){
+    try{
+        await fetch(`http://localhost:8080/v2/filmesAcme/deleteAtor/${id}`,{
+            method: 'DELETE'
+        })
+        console.log("Ator excluído com sucesso")
+    } catch (error){
+        console.error('Erro ao excluir filme: ',error);
+    }
+}
+
+export async function getAtorIdPeloNome(nomeAtor) {
+    const url = `http://localhost:8080/v2/acmeFilmes/ator/Filtro?nome=${nomeAtor}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    if (data && data.ator && data.ator.length > 0) {
+        return data.ator[0].id;
+    } else {
+        return null;
+    }
+}

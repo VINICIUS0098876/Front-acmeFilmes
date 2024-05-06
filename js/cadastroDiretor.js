@@ -11,6 +11,9 @@ const valor = document.getElementById('valor')
 const cadastrar = document.getElementById('cadastrar')
 const poster = document.getElementById('poster')
 const idClassificacao = document.getElementById('classificacao')
+const idNacionalidade = document.getElementById('nacionalidade')
+
+
 
 cadastrar.addEventListener('click', ()=>{
 
@@ -20,18 +23,22 @@ cadastrar.addEventListener('click', ()=>{
     const dataRelancamentoInput = dataRelancamento.value
     const capaInput = poster.src
     const classificacaoInput = idClassificacao.value
+    const nacionalidadeInput = idNacionalidade.value
     const insert ={
         nome: tituloInput,
-        biografia: duracaoInput,
         data_nascimento: dataLancamentoInput,
         data_falecimento: dataRelancamentoInput,
+        biografia: duracaoInput,
         foto: capaInput,
-        id_sexo: classificacaoInput
+        id_sexo: classificacaoInput,
+        id_nacionalidade: nacionalidadeInput    
     }
+
+    console.log(idNacionalidade)
 
     postDiretor(insert)
     console.log(insert)
-    // window.location.href = './dashAtor.html'
+    window.location.href = './dashDiretor.html'
 })
 
 link.addEventListener('keyup', ()=>{

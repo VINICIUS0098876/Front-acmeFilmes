@@ -1,7 +1,34 @@
 'use strict'
-import {getAtor,deleteFilme} from "./filmes.js"
+import {getAtor, deleteAtor, selectAtorBySexo} from "./filmes.js"
 const listaFilme = await getAtor()
 const container = document.getElementById('container')
+const searchBar = document.getElementById('searchBar')
+
+const searchButton = document.getElementById('searchButton')
+searchButton.addEventListener('click', pesquisar)
+async function pesquisar(){
+    const pesquisaAtor = await selectAtorBySexo(searchBar.value)
+    const listaFilmes = pesquisaAtor.sigla
+    console.log(listaFilmes)
+    apagarListaFilmes()
+
+    listaFilmes.forEach(filme => {
+        console.log(filme)
+        criarCard(filme)
+    });
+}
+searchBar.addEventListener('keypress', (event)=>{
+    if(event.key === "Enter"){
+        pesquisar()
+    }
+})
+function apagarListaFilmes(){
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
+}
+
+
 
 function criarFilme(info){
     const filme = document.createElement('div')
@@ -30,7 +57,7 @@ function criarFilme(info){
         window.location.href='../editar.html?id='+info.id_ator
     })
     iconeDeletar.addEventListener('click',()=>{
-        deleteFilme(info.id_ator)
+        deleteAtor(info.id_ator)
         window.location.reload()
     })
 }
@@ -38,7 +65,7 @@ function criarFilme(info){
 const add = document.getElementById('add')
 
 add.addEventListener('click', ()=>{
-    window.location.href = '../cadastro.html'
+    window.location.href = '../cadastrarAtor.html'
 })
 
 listaFilme.forEach(filme => {

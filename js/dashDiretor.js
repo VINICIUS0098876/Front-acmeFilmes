@@ -1,5 +1,5 @@
 'use strict'
-import {getDiretor,deleteFilme} from "./filmes.js"
+import {getDiretor,deleteDiretor} from "./filmes.js"
 const listaDiretor = await getDiretor()
 const container = document.getElementById('container')
 
@@ -15,9 +15,9 @@ function criarDiretor(info){
     produto.textContent = info.nome
     produto.classList.add('text-[#ECDDA2]','text-3xl')
 
-    // const valor = document.createElement('p')
-    // valor.classList.add('text-[#ECDDA2]','text-3xl')
-    // valor.textContent= info.nome_artistico
+    const valor = document.createElement('p')
+    valor.classList.add('text-[#ECDDA2]','text-3xl')
+    valor.textContent= info.sexo[0].nome
 
     const icones = document.createElement('div')
     icones.classList.add('text-[#ECDDA2]','text-3xl','flex','gap-4')
@@ -29,14 +29,14 @@ function criarDiretor(info){
     iconeDeletar.classList.add('bx','bxs-trash','text-[#FF0000]','cursor-pointer')
 
     icones.replaceChildren(iconeEditar,iconeDeletar)
-    filme.replaceChildren(id,produto,icones)
+    filme.replaceChildren(id,produto,valor,icones)
     container.appendChild(filme)
 
     iconeEditar.addEventListener('click',()=>{
         window.location.href='../editar.html?id=' + info.id_diretor
     })
     iconeDeletar.addEventListener('click',()=>{
-        deleteFilme(info.id_diretor)
+        deleteDiretor(info.id_diretor)
         window.location.reload()
     })
 }
@@ -44,9 +44,11 @@ function criarDiretor(info){
 const add = document.getElementById('add')
 
 add.addEventListener('click', ()=>{
-    window.location.href = '../cadastro.html'
+    window.location.href = '../cadastrarDiretor.html'
 })
+console.log(listaDiretor)
 
 listaDiretor.forEach(diretor => {
     criarDiretor(diretor)
 });
+
