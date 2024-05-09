@@ -1,5 +1,5 @@
 'use strict'
-import {getAtorIdPeloNome, getDiretorIdPeloNome, getFilmes, getFilmesId,postFilme, putFilme} from "./filmes.js"
+import {addAtorFilme, addDiretorFilme, getAtorIdPeloNome, getDiretorIdPeloNome, getFilmes, getFilmesId,postFilme, putFilme} from "./filmes.js"
 
 // Import das tags do HTML pelo ID
 const titulo = document.getElementById('titulo')
@@ -45,18 +45,34 @@ cadastrar.addEventListener('click', async ()=>{
         valor_unitario: valorInput,
         foto_capa: capaInput,
         id_classificacao: classificacaoInput,
-        id_genero: generoInput,
-        id_ator: atorId,
-        id_diretor: diretorId
     }
 
     console.log(atorInput)
     console.log(diretorInput)
 
 
-    postFilme(insert)
-    console.log(insert)
-    // window.location.href = './dashboard.html'
+     postFilme(insert)
+    // console.log(postFilmeResult);
+    // if(postFilmeResult.response){
+    //     const idFilme = parseInt(postFilmeResult.json.id)
+    //     const info = {
+    //         idAtor: parseInt(idAtor.value),
+    //         idFilme
+    //     }
+    //     const infoDiretor = {
+    //         idDiretor: parseInt(idDiretor.value),
+    //         idFilme
+    //     }
+    //     console.log(infoDiretor)
+    //     const addDiretorFilmeResult = await addDiretorFilme(infoDiretor)
+    //     console.log(info);
+    //     const addAtorFilmeResult = await addAtorFilme(info)
+    //     if(addAtorFilmeResult || addDiretorFilmeResult){
+    //         // window.location.href = './dashboard.html'
+    //     }else {
+    //         alert('Deu erro aí')
+    //     }
+    // } 
 })
 
 link.addEventListener('keyup', ()=>{

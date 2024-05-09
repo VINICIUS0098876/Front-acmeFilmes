@@ -32,11 +32,12 @@ export async function postFilme(filme){
     }
 
     const response = await fetch(url, options)
-
-    return response.ok
+    const json = await response.json()
+    return {json, response: response.ok}
 }
 
 export async function putFilme(id, filme){
+    console.log(filme);
     const url = `http://localhost:8080/v2/acmeFilmes/filme/${id}`
     const options = {
         method: 'PUT',
@@ -104,7 +105,12 @@ export async function deleteClassificacao(){}
 
 // ---------------------------------------------- SEXO ---------------------------------------------------//
 
-export async function getSexo(){}
+export async function getSexo(){
+    const url = `http://localhost:8080/v2/filmesAcme/sexo`
+    const response = await fetch(url)
+    const data = await response.json()
+    return data.generos
+}
 
 export async function getSexoId(){}
 
@@ -117,7 +123,12 @@ export async function selectAtorBySexo(sigla){
 
 // ---------------------------------------------- NACIONALIDADE ------------------------------------------//
 
-export async function getNacionalidade(){}
+export async function getNacionalidade(){
+    const url = `http://localhost:8080/v2/filmesAcme/nacionalidade`
+    const response = await fetch(url)
+    const data = await response.json()
+    return data.nacionalidade
+}
 
 export async function getNacionalidadeId(){}
 
@@ -184,6 +195,21 @@ export async function getDiretorIdPeloNome(nomeDiretor) {
     }
 }
 
+export async function addDiretorFilme(info){
+    const url = 'http://localhost:8080/v2/acmefilmes/diretorfilme'
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(info)
+    }
+    const response = await fetch(url, options)
+    console.log(response)
+    return response.ok 
+}
+
+
 
 // ------------------------------------------------- ATOR ----------------------------------------------------//
 
@@ -222,7 +248,20 @@ export async function postAtor(ator){
     return response.ok 
 }
 
-// export async function putDiretor(id, genero){}
+export async function putAtor(id, genero){
+    const url = `http://localhost:8080/v2/filmesAcme/updateAtor/${id}`
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(genero)
+    }
+
+    const response = await fetch(url, options)
+
+    return response.ok
+}
 
 export async function deleteAtor(id){
     try{
@@ -244,4 +283,18 @@ export async function getAtorIdPeloNome(nomeAtor) {
     } else {
         return null;
     }
+}
+
+export async function addAtorFilme(info){
+    const url = 'http://localhost:8080/v2/acmefilmes/atorfilme'
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(info)
+    }
+
+    const response = await fetch(url, options)
+    return response.ok 
 }

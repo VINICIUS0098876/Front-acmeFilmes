@@ -24,7 +24,7 @@ function preencherCampos(filme){
     // const genero = document.getElementById('genero')
     // genero.textContent=generoText.slice(0,generoText.length-2)
     const relancamento = document.getElementById('relancamento')
-    if(filme.relancamento){
+    if(filme.data_relancamento){
         relancamento.textContent = "DATA DE RELANÇAMENTO: "+tratarData(filme.data_relancamento)
     } else {
         relancamento.textContent = "DATA DE RELANÇAMENTO: Sem previsão"

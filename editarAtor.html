@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/input.css">
+    <link rel="stylesheet" href="./src/output.css">
+    <script type="module" src="./js/filmes.js"></script>
+    <script type="module" src="./js/editAtor.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Editar filme</title>
+</head>
+<body class="h-screen bg-[#19191A]">
+
+    <header class="h-24 flex justify-between items-center p-12 bg-[#19191A] border-b-4 border-[#ECDDA2]">
+        <a href="./dashboard.html" class="text-[#ECDDA2] text-3xl">EDITAR ATOR</a>
+        <ul class="flex gap-4">
+
+            <li class="border-4 border-[#ECDDA2] rounded-full p-2"><a href="./login.html"
+                    class="text-[#ECDDA2] text-2xl   hover:bg-[#ECDDA2]  ">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-12 h-12">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                </a></li>
+        </ul>
+    </header>
+
+    <main class="h-4/5">
+        <div class="flex w-full h-full justify-around items-center" id="container">
+            <div class="flex gap-5 flex-col" id="infoFilme">
+                <div class="flex items-center justify-center gap-2">
+                    <p class="text-[#ECDDA2]  text-3xl" >Nome:</p>
+                    <input type="text" class="outline-none p-3 w-96 border-4 border-[#ECDDA2#ECDDA2] bg-[#19191A] text-[#ECDDA2] text-2xl" id="nome">
+                </div>
+                <div class="flex items-center justify-center gap-2">
+                    <p class="text-[#ECDDA2]  text-3xl" >Nome artistico:</p>
+                    <input type="text" class="outline-none p-3 w-96 border-4 border-[#ECDDA2#ECDDA2] bg-[#19191A] text-[#ECDDA2] text-2xl" id="nome_artistico">
+                </div>
+                <div class="flex items-center gap-4">
+                    <p class="text-[#ECDDA2]  text-3xl" >Data Nascimento:</p>
+                    <input type="date" class="p-3 outline-none border-4 border-[#ECDDA2#ECDDA2] bg-[#19191A] text-[#ECDDA2] text-2xl" id="nascimento">
+                </div>
+                <div class="flex items-center gap-2">
+                    <p class="text-[#ECDDA2]  text-3xl" >Data Falecimento:</p>
+                    <input type="date" class="p-3 outline-none border-4 border-[#ECDDA2#ECDDA2] bg-[#19191A] text-[#ECDDA2] text-2xl" id="falecimento">
+                </div>
+                <div class="flex items-center gap-4">
+                    <p class="text-[#ECDDA2]  text-3xl" >Biografia:</p>
+                    <textarea name=""  cols="30" rows="5" class="w-96 outline-none border-4 border-[#ECDDA2#ECDDA2] bg-[#19191A] text-[#ECDDA2] text-1xl" id="sinopse"></textarea>
+                </div>
+                <div class="flex items-center gap-2">
+                    <p class="text-[#ECDDA2]  text-3xl" >Sexo:</p>
+                    <select name="" class="text-2xl border-[#ECDDA2] border-4 bg-[#19191A] text-[#ECDDA2] outline-none" id="sexo"></select>
+                </div> 
+                <div class="flex items-center gap-2">
+                    <p class="text-[#ECDDA2]  text-3xl" >Nacionalidade:</p>
+                    <select name="" class="text-2xl border-[#ECDDA2] border-4 bg-[#19191A] text-[#ECDDA2] outline-none" id="nacionalidade"></select>
+                </div>
+            </div>
+            <div class="" id="capaFilme">
+                <div class="posterFilme bg-[#7A7A7A] text-[#ECDDA2] h-fit w-fit flex flex-col items-center border-4 border-[#ECDDA2]">
+                    <img id="poster" class="w-64">
+                    <input type="text" id="link" class="w-full outline-none bg-[#19191A] font-bold" placeholder="Link da imagem">
+                </div>
+                <button class="p-3 border-4 border-[#ECDDA2] m-10 text-[#ECDDA2] font-bold hover:bg-[#ECDDA2] hover:text-[#19191A] transition ease-in-out block" id="salvar">SALVAR ALTERAÇÕES</button>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>
+<style>
+    .posterFilme>img {
+        aspect-ratio: 2/3;
+
+    }
+
+textarea{
+    resize: none;
+}
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(84%) sepia(27%) saturate(2276%) hue-rotate(338deg) brightness(96%) contrast(90%);
+}
+</style>

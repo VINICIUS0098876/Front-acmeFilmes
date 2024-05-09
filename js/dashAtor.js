@@ -54,7 +54,7 @@ function criarFilme(info){
     container.appendChild(filme)
 
     iconeEditar.addEventListener('click',()=>{
-        window.location.href='../editar.html?id='+info.id_ator
+        window.location.href='../editarAtor.html?id='+info.id_ator
     })
     iconeDeletar.addEventListener('click',()=>{
         deleteAtor(info.id_ator)

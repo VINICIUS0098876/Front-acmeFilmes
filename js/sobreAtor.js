@@ -18,7 +18,7 @@ function preencherCampos(filme){
     const lancamento = document.getElementById('lancamento')
     lancamento.textContent = "Data de nascimento: "+tratarData(filme.data_nascimento)
     const relancamento = document.getElementById('relancamento')
-    if(filme.relancamento){
+    if(filme.data_falecimento){
         relancamento.textContent = "Data de falecimento: "+tratarData(filme.data_falecimento)
     } else {
         relancamento.textContent = "Data de falecimento: Sem previsão da morte!"
